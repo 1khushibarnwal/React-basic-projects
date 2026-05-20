@@ -122,11 +122,14 @@ Game loop halts without resetting state.
 
 # 📸 Gameplay Preview
 
-Add screenshots here:
+<h3>Home Page:</h3>
+<img width="681" height="855" alt="image" src="https://github.com/user-attachments/assets/22031c21-66bf-423f-8c8d-c3ef65eb0ea7" />
 
-```md
-![Gameplay Screenshot](./preview.png)
-```
+<h3>Pause Screen:</h3>
+<img width="682" height="861" alt="image" src="https://github.com/user-attachments/assets/8c5d1fab-fe8b-419c-aa41-2d46e7fea405" />
+
+<h3>Game Over Screen</h3>
+<img width="717" height="852" alt="image" src="https://github.com/user-attachments/assets/a9459720-46af-4ac9-a431-387f62162f3b" />
 
 ---
 
