@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.app {
+  padding: 30px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.scores {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 20px;
+}
+
+button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 14px;
+  background: #22c55e;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+.board {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(20, 28px);
+
+  gap: 2px;
+
+  width: fit-content;
+
+  padding: 16px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(12px);
+}
+
+.cell {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.snake {
+  background: limegreen;
+  box-shadow: 0 0 12px limegreen;
+}
+
+.food {
+  background: crimson;
+  border-radius: 50%;
+
+  box-shadow: 0 0 16px crimson;
+
+  animation: pulse 0.8s infinite alternate;
+}
+
+.pause-overlay,
+.game-over {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pause-overlay h1 {
+  color: #22c55e;
+  font-size: 5rem;
+}
+
+.game-over h1 {
+  color: red;
+  font-size: 5rem;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+}
