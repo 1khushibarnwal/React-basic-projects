@@ -147,11 +147,17 @@ Displays:
 
 # 📸 Gameplay Preview
 
-Add screenshot:
+<h3>Home Page:</h3>
+<img width="632" height="847" alt="image" src="https://github.com/user-attachments/assets/5ef2ce98-ab4d-47ae-9117-06315b486a21" />
 
-```md
-![Memory Game Screenshot](./preview.png)
-```
+<h3>Card flipped state:</h3>
+<img width="696" height="853" alt="image" src="https://github.com/user-attachments/assets/d04e9630-6b58-4974-a1b8-634168cd29db" />
+
+<h3>Score reading:</h3>
+<img width="630" height="867" alt="image" src="https://github.com/user-attachments/assets/63d6d52d-07a3-4a0d-a10a-0aac77ca8a96" />
+
+<h3>Winning message:</h3>
+<img width="921" height="863" alt="image" src="https://github.com/user-attachments/assets/9ed3032c-5c2a-4332-8302-9968f6916ff0" />
 
 ---
 
