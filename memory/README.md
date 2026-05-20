@@ -1,16 +1,185 @@
-# React + Vite
+# 🧠 Neon Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek **2-player Memory Card Game** built with **React**.
 
-Currently, two official plugins are available:
+Flip cards, match pairs, outscore your opponent, and flex your memory like your semester grades depend on it.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎮 Gameplay
 
-## Expanding the ESLint configuration
+- 2-player turn-based system
+- Flip-and-match mechanics
+- Automatic turn switching
+- Match detection logic
+- Winner announcement overlay
+- Instant restart system
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+# 🏆 Scoring System
+
+- Live score tracking for both players
+- Automatic score updates on successful matches
+- Dynamic winner detection
+- Draw handling support
+
+---
+
+# 🎨 UI Highlights
+
+- Glassmorphism card design
+- Smooth flip interactions
+- Floating hover animations
+- Blurred game-complete background effect
+- Animated winner screen
+- Modern neon arcade styling
+
+---
+
+# ⌨ How to Play
+
+1. Player 1 starts.
+2. Click a card to reveal it.
+3. Click another card:
+   - **Match** → earn a point + play again
+   - **No match** → cards flip back + next player’s turn
+
+4. Game ends when all pairs are matched.
+5. Highest score wins.
+
+---
+
+# 🛠 Tech Stack
+
+- **React**
+- **JavaScript (ES6+)**
+- **CSS3 Animations**
+- **React State Management**
+
+---
+
+# 🚀 Installation
+
+Clone repository:
+
+```bash
+git clone <your-repo-url>
+cd memory-game
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run locally:
+
+```bash
+npm run dev
+```
+
+Open:
+
+```bash
+http://localhost:5173
+```
+
+---
+
+# 📂 Project Structure
+
+```plaintext
+memory-game/
+ ┣ src/
+ ┃ ┣ App.jsx
+ ┃ ┣ index.css
+ ┃ ┗ main.jsx
+ ┣ package.json
+ ┗ README.md
+```
+
+---
+
+# ⚡ Core Game Logic
+
+## Card Flip State
+
+Tracks whether each card is:
+
+- Hidden
+- Flipped
+- Permanently matched
+
+---
+
+## Match Validation
+
+Compares selected card values.
+
+If equal:
+
+- Lock cards revealed
+- Award point
+
+If not:
+
+- Delay briefly
+- Flip back
+- Switch turn
+
+---
+
+## Winner Detection
+
+Triggered when all pairs are matched.
+
+Displays:
+
+- Winner overlay
+- Draw screen if tied
+- Restart prompt
+
+---
+
+# 📸 Gameplay Preview
+
+Add screenshot:
+
+```md
+![Memory Game Screenshot](./preview.png)
+```
+
+---
+
+# 🌟 Future Improvements
+
+- Single-player vs AI mode
+- Difficulty levels
+- Timer challenge mode
+- Leaderboard system
+- Sound effects
+- Card themes / skins
+
+---
+
+# 👩‍💻 Author
+
+**Khushi Barnwal**
+
+Built while upgrading React logic skills and aggressively flipping cards.
+
+---
+
+# 📜 License
+
+MIT License
+
+---
+
+## Memory issue?
+
+Nah. Totally meant to click that wrong card.

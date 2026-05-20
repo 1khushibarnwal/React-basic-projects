@@ -92,7 +92,7 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1>Memory Game</h1>
+      <h1>🧠 Neon Memory Game</h1>
 
       {!winner && <h2>Player {player}'s Turn</h2>}
 
