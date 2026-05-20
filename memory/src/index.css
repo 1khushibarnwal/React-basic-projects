@@ -1,0 +1,263 @@
+/* body {
+  margin: 0;
+  font-family: sans-serif;
+  text-align: center;
+  overflow: hidden;
+  background-color: rgb(8, 8, 80);
+}
+
+.app {
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 14px;
+  justify-content: center;
+  margin-top: 20px;
+  transition: all 1.2s ease;
+}
+
+.grid-item {
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: rgb(62, 62, 222);
+}
+
+.grid-item:hover {
+  transform: scale(1.06);
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  color: white;
+}
+
+button {
+  padding: 12px 22px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 18px;
+  background-color: blueviolet;
+}
+
+.blurred {
+  filter: blur(10px);
+  opacity: 0.15;
+  transform: scale(0.92);
+}
+
+.winner-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: popIn 1.5s ease forwards;
+}
+
+.winner-overlay h1 {
+  font-size: 6rem;
+  margin: 0;
+  animation: grow 1.5s ease forwards;
+}
+
+.winner-overlay button {
+  margin-top: 30px;
+  font-size: 1.3rem;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    backdrop-filter: blur(0px);
+  }
+  to {
+    backdrop-filter: blur(6px);
+  }
+}
+
+h1 {
+  color: rgb(175, 134, 213);
+  text-shadow: 0 0 8px rgb(175, 134, 213);
+}
+
+h2 {
+  color: white;
+} */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.app {
+  padding: 30px;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 1.4rem;
+  opacity: 0.9;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 20px 0;
+}
+
+.scoreboard p {
+  font-size: 1.3rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px 24px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
+}
+
+button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s;
+  box-shadow: 0 0 18px rgba(34, 197, 94, 0.35);
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  gap: 18px;
+  justify-content: center;
+  margin-top: 35px;
+  transition: all 1.2s ease;
+}
+
+.grid-item {
+  width: 120px;
+  height: 120px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2.5rem;
+  font-weight: bold;
+
+  border-radius: 22px;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+
+  transition: 0.35s ease;
+}
+
+.grid-item:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.06),
+    0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.blurred {
+  filter: blur(12px);
+  opacity: 0.12;
+  transform: scale(0.9);
+}
+
+.winner-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  backdrop-filter: blur(8px);
+
+  animation: popIn 1.2s ease forwards;
+}
+
+.winner-overlay h1 {
+  font-size: 7rem;
+  margin: 0;
+
+  background: linear-gradient(135deg, #22c55e, #4ade80, #86efac);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: grow 1.4s ease forwards;
+}
+
+.winner-overlay button {
+  margin-top: 35px;
+  font-size: 1.2rem;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
