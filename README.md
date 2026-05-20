@@ -117,12 +117,15 @@ http://localhost:5173
 
 # 📸 Preview
 
-Add screenshots here:
+🐍 Neon Snake Game
 
-```md
-![Snake Preview](./snake-preview.png)
-![Memory Preview](./memory-preview.png)
-```
+<img width="720" height="878" alt="image" src="https://github.com/user-attachments/assets/81c8114a-9b37-4940-b7f1-adfbf8db8886" />
+
+
+🧠 Neon Memory Game:
+
+<img width="695" height="877" alt="image" src="https://github.com/user-attachments/assets/a1807ed5-efba-4c0f-9c6d-6939e63dcddf" />
+
 
 ---
 
