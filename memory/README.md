@@ -148,16 +148,16 @@ Displays:
 # 📸 Gameplay Preview
 
 <h3>Home Page:</h3>
-<img width="632" height="847" alt="image" src="https://github.com/user-attachments/assets/5ef2ce98-ab4d-47ae-9117-06315b486a21" />
+<img width="796" height="762" alt="image" src="https://github.com/user-attachments/assets/cb44b849-203f-43a0-8773-f6d2ea3a007b" />
 
-<h3>Card flipped state:</h3>
-<img width="696" height="853" alt="image" src="https://github.com/user-attachments/assets/d04e9630-6b58-4974-a1b8-634168cd29db" />
+<h3>Card flipped state (Matched state):</h3>
+<img width="811" height="765" alt="image" src="https://github.com/user-attachments/assets/f3f1dae3-6421-4d62-a696-bc08bbbdb3d9" />
 
-<h3>Score reading:</h3>
-<img width="630" height="867" alt="image" src="https://github.com/user-attachments/assets/63d6d52d-07a3-4a0d-a10a-0aac77ca8a96" />
+<h3>Wrong guess:</h3>
+<img width="792" height="762" alt="image" src="https://github.com/user-attachments/assets/564aa972-9763-4fb7-a1e7-7d4eb2d299ea" />
 
 <h3>Winning message:</h3>
-<img width="921" height="863" alt="image" src="https://github.com/user-attachments/assets/9ed3032c-5c2a-4332-8302-9968f6916ff0" />
+<img width="793" height="782" alt="image" src="https://github.com/user-attachments/assets/95702a4e-215c-48d4-90b7-80967102dca8" />
 
 ---
 
