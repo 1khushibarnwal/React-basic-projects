@@ -1,113 +1,187 @@
 import { useState } from "react";
 import "./index.css";
 
-export default function App() {
-  const shuffle = () => {
-    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
+const values = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
 
-    return arr
-      .map((v) => ({ value: v, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map((v) => ({
-        value: v.value,
-        flipped: false,
-        matched: false,
-      }));
+const shuffleCards = () =>
+  [...values]
+    .sort(() => Math.random() - 0.5)
+    .map((value) => ({
+      value,
+      flipped: false,
+      matched: false,
+      wrong: false,
+      owner: null,
+    }));
+
+export default function App() {
+  const [cards, setCards] = useState(shuffleCards());
+
+  const [selected, setSelected] = useState([]);
+
+  const [turn, setTurn] = useState(1);
+
+  const [score1, setScore1] = useState(0);
+
+  const [score2, setScore2] = useState(0);
+
+  const [winner, setWinner] = useState(null);
+
+  const restart = () => {
+    setCards(shuffleCards());
+    setSelected([]);
+    setTurn(1);
+    setScore1(0);
+    setScore2(0);
+    setWinner(null);
   };
 
-  const [cards, setCards] = useState(shuffle());
-  const [selected, setSelected] = useState([]);
-  const [player, setPlayer] = useState(1);
-  const [score, setScore] = useState({ 1: 0, 2: 0 });
-  const [lock, setLock] = useState(false);
-
-  const restartGame = () => {
-    setCards(shuffle());
-    setSelected([]);
-    setPlayer(1);
-    setScore({ 1: 0, 2: 0 });
-    setLock(false);
+  const checkWinner = (board, s1, s2) => {
+    if (board.every((c) => c.matched)) {
+      if (s1 > s2) setWinner("Player 1 Wins!");
+      else if (s2 > s1) setWinner("Player 2 Wins!");
+      else setWinner("It's a Draw!");
+    }
   };
 
   const handleClick = (index) => {
     if (
-      lock ||
       cards[index].flipped ||
       cards[index].matched ||
-      selected.length === 2
+      selected.length === 2 ||
+      winner
     )
       return;
 
-    const newCards = cards.map((card, i) =>
-      i === index ? { ...card, flipped: true } : card,
-    );
+    const nextCards = cards.map((c) => ({
+      ...c,
+    }));
 
-    const newSelected = [...selected, index];
+    nextCards[index] = {
+      ...nextCards[index],
+      flipped: true,
+    };
 
-    setCards(newCards);
-    setSelected(newSelected);
+    const nextSelected = [...selected, index];
 
-    if (newSelected.length === 2) {
-      setLock(true);
+    setCards(nextCards);
+    setSelected(nextSelected);
 
-      const [first, second] = newSelected;
+    if (nextSelected.length === 2) {
+      const [first, second] = nextSelected;
 
-      if (newCards[first].value === newCards[second].value) {
-        const updatedCards = newCards.map((card, i) =>
-          i === first || i === second ? { ...card, matched: true } : card,
-        );
+      if (nextCards[first].value === nextCards[second].value) {
+        setTimeout(() => {
+          const matched = nextCards.map((c) => ({
+            ...c,
+          }));
 
-        setCards(updatedCards);
+          matched[first] = {
+            ...matched[first],
+            matched: true,
+            owner: turn,
+          };
 
-        setScore((prev) => ({
-          ...prev,
-          [player]: prev[player] + 1,
+          matched[second] = {
+            ...matched[second],
+            matched: true,
+            owner: turn,
+          };
+
+          let s1 = score1;
+          let s2 = score2;
+
+          if (turn === 1) {
+            s1++;
+            setScore1(s1);
+          } else {
+            s2++;
+            setScore2(s2);
+          }
+
+          setCards(matched);
+
+          setSelected([]);
+
+          checkWinner(matched, s1, s2);
+        }, 500);
+      } else {
+        const wrong = nextCards.map((c) => ({
+          ...c,
         }));
 
-        setSelected([]);
-        setLock(false);
-      } else {
-        setTimeout(() => {
-          const updatedCards = newCards.map((card, i) =>
-            i === first || i === second ? { ...card, flipped: false } : card,
-          );
+        wrong[first] = {
+          ...wrong[first],
+          wrong: true,
+        };
 
-          setCards(updatedCards);
+        wrong[second] = {
+          ...wrong[second],
+          wrong: true,
+        };
+
+        setCards(wrong);
+
+        setTimeout(() => {
+          const reset = wrong.map((c) => ({
+            ...c,
+          }));
+
+          reset[first] = {
+            ...reset[first],
+            flipped: false,
+            wrong: false,
+          };
+
+          reset[second] = {
+            ...reset[second],
+            flipped: false,
+            wrong: false,
+          };
+
+          setCards(reset);
+
           setSelected([]);
-          setPlayer((prev) => (prev === 1 ? 2 : 1));
-          setLock(false);
+
+          setTurn((prev) => (prev === 1 ? 2 : 1));
         }, 1000);
       }
     }
   };
 
-  const winner =
-    score[1] + score[2] === 8
-      ? score[1] > score[2]
-        ? "PLAYER 1 WINS"
-        : score[2] > score[1]
-          ? "PLAYER 2 WINS"
-          : "DRAW"
-      : null;
-
   return (
     <div className="app">
       <h1>🧠 Neon Memory Game</h1>
 
-      {!winner && <h2>Player {player}'s Turn</h2>}
-
       <div className="scoreboard">
-        <p>Player 1: {score[1]}</p>
-        <p>Player 2: {score[2]}</p>
+        <p>
+          Player 1:
+          {score1}
+        </p>
+
+        <p>Turn: Player {turn}</p>
+
+        <p>
+          Player 2:
+          {score2}
+        </p>
       </div>
 
-      <button onClick={restartGame}>Restart</button>
+      <button onClick={restart}>Restart</button>
 
       <div className={`grid-container ${winner ? "blurred" : ""}`}>
         {cards.map((card, index) => (
           <div
             key={index}
-            className="grid-item"
+            className={`grid-item
+                ${
+                  card.owner === 1
+                    ? "player1"
+                    : card.owner === 2
+                      ? "player2"
+                      : ""
+                }
+                ${card.wrong ? "wrong" : ""}`}
             onClick={() => handleClick(index)}
           >
             {card.flipped || card.matched ? card.value : "?"}
@@ -118,7 +192,8 @@ export default function App() {
       {winner && (
         <div className="winner-overlay">
           <h1>{winner}</h1>
-          <button onClick={restartGame}>Play Again</button>
+
+          <button onClick={restart}>Play Again</button>
         </div>
       )}
     </div>
