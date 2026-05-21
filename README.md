@@ -124,7 +124,7 @@ http://localhost:5173
 
 🧠 Neon Memory Game:
 
-<img width="695" height="877" alt="image" src="https://github.com/user-attachments/assets/a1807ed5-efba-4c0f-9c6d-6939e63dcddf" />
+<img width="796" height="762" alt="image" src="https://github.com/user-attachments/assets/dad68f40-891c-4402-95f1-e2a2f73aa7d5" />
 
 
 ---
