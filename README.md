@@ -1,4 +1,4 @@
-# ⚛️ React Basic Projects
+# ⚛️ Games in React
 
 A growing collection of beginner-to-intermediate **React game projects** built while leveling up frontend development skills.
 
